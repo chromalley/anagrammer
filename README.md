@@ -19,6 +19,7 @@ Where the first word is per line is one of the input phrases, and the words afte
 
 The anagrams are also ouput as JSON in the following format:
 
+```javascript
 {
   "anagramList": [
     {
@@ -36,6 +37,7 @@ The anagrams are also ouput as JSON in the following format:
     }
   ]
 }
+```
 
 Project includes a sample word dictionary (TWL06) sourced from here:
 
@@ -46,10 +48,10 @@ Project
 
 The Xcode project is organized as follows:
 
-The anagrammer target is essentially a wrapper around the static library anagrammerLib. 
-The anagrammerLib target contains the entirety of the program, include the main function and the associated classes for processing the dictionary and generating anagrams. 
-The anagarammerLibTests target inludes the unit tests for anagrammerLib. 
+The __anagrammer__ target is essentially a wrapper around the static library anagrammerLib. 
+The __anagrammerLib__ target contains the entirety of the program, including the main function and the associated classes for processing the dictionary and generating anagrams. 
+The __anagarammerLibTests__ target inludes the unit tests for anagrammerLib. 
 
-To run the unit tests in Xcode, simply select the anagrammerLib scheme and select Product-> Test (or type command-U). 
+To run the unit tests in Xcode, simply select the __anagrammerLib__ scheme and select __Product-> Test__ (or type __Command-U__). 
 
  
