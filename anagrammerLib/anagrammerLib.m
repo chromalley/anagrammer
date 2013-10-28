@@ -38,11 +38,11 @@ int anagrammerLibMain(int argc, const char * argv[])
             return -1;
         }
         
-        NSLog(@"Saving dictionary words. Please Wait.");
+        NSLog(@"Saving dictionary words...");
         
         AnagramDictionary* dictionary = [[AnagramDictionary alloc] initWithWordSet:[NSSet setWithArray:words]];
         
-        NSLog(@"Process phrases: ");
+        NSLog(@"Processing phrases...");
         
         NSMutableArray* anagramArray = [NSMutableArray new];
         
