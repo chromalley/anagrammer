@@ -46,7 +46,7 @@
     TrieNode* oNode = [mutableTrie.root.children valueForKey:@"o"];
     NSUInteger oChildNode = [oNode.children count];
     
-    XCTAssert( rootChildNodes == 2 && nChildNode == 1 && oChildNode == 1, @"Word was not added successfully");
+    XCTAssert( rootChildNodes == 2 && nChildNode == 1 && oChildNode == 1, @"Child nodes were not created successfully.");
 }
 
 @end
