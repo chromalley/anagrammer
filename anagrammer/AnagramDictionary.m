@@ -12,6 +12,8 @@
 #import "NSString+Characters.h"
 #import "NSString+Replacement.h"
 
+static NSUInteger const kMinimumWordLength = 3;
+
 @interface AnagramDictionary ()
 
 @property (nonatomic,strong) NSSet* wordSet;
@@ -31,6 +33,11 @@
         _mutableTrie = [[MutableTrie alloc] init];
         for (id word in set){
             if ([word isKindOfClass:[NSString class]]){
+                
+                if ([word isEqualToString:@""]){
+                    continue;
+                }
+                
                 [_mutableTrie addString:word];
             }
         }
@@ -46,50 +53,51 @@
                 anagrams:(NSMutableArray*)anagrams
               curentPath:(NSMutableString*)path{
     
-    if ([node isValidWord] && [node.children count] == 0){
+    if ([node isValidWord] && [node.string length] >= kMinimumWordLength){
         
         NSUInteger currentLength = [[path stringByReplacingOccurrencesOfString:@" " withString:@""] length];
         
         if (currentLength >= minLength){
             [anagrams addObject:[path copy]];
             [path setString:@""];
+            return;
         } else {
-            [path appendFormat:@" "];
+            NSMutableString* nextPath = [path mutableCopy];
+            [nextPath appendString:@" "];
             [self anagramsForPhrase:phrase
                                node:self.mutableTrie.root
                       minimumLength:minLength
                            anagrams:anagrams
-                         curentPath:path];
-        }
-        
-    } else {
-        
-        NSArray* childKeys = [node.children allKeys];
-        
-        for (NSString* childKey in childKeys ){
-            
-            NSSet* characters = [phrase setOfCharacters];
-            
-            if ([characters containsObject:childKey]){
-                NSString* newString = [phrase stringByReplacingFirstOccurrencesOfString:childKey
-                                                                             withString:@""];
-                NSMutableString* nextPath = [path mutableCopy];
-                [nextPath appendString:childKey];
-                TrieNode* newNode = [node.children valueForKey:childKey];
-                
-                [self anagramsForPhrase:newString
-                                   node:newNode
-                          minimumLength:minLength
-                               anagrams:anagrams
-                             curentPath:nextPath];
-                
-            } else {
-                continue;
-            }
-            
+                         curentPath:nextPath];
         }
         
     }
+    
+    NSArray* childKeys = [node.children allKeys];
+    
+    for (NSString* childKey in childKeys ){
+        
+        NSSet* characters = [phrase setOfCharacters];
+        
+        if ([characters containsObject:childKey]){
+            NSString* newString = [phrase stringByReplacingFirstOccurrencesOfString:childKey
+                                                                         withString:@""];
+            NSMutableString* nextPath = [path mutableCopy];
+            [nextPath appendString:childKey];
+            TrieNode* newNode = [node.children valueForKey:childKey];
+            
+            [self anagramsForPhrase:newString
+                               node:newNode
+                      minimumLength:minLength
+                           anagrams:anagrams
+                         curentPath:nextPath];
+            
+        } else {
+            continue;
+        }
+        
+    }
+    
 }
 
 -(NSArray* )anagramsForPhrase:(NSString *)phrase{
@@ -105,6 +113,8 @@
               minimumLength:length
                    anagrams:anagrams
                  curentPath:path];
+    
+    [anagrams removeObject:phrase]; //If input was one word, make sure it doesn't show up in results.
     
     return anagrams;
 }
