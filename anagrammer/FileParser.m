@@ -45,7 +45,7 @@ static NSString* const kFileParserDomain = @"FileParserDomain";
     
     //Verify we have a valid dictionary
     NSArray* linesArray = [fileContents componentsSeparatedByCharactersInSet:
-                           [NSCharacterSet characterSetWithCharactersInString:@"\n,"]];
+                           [NSCharacterSet characterSetWithCharactersInString:@"\n\r,"]];
     
     if (!linesArray || ![linesArray count]){
         *error = [NSError errorWithDomain: kFileParserDomain
