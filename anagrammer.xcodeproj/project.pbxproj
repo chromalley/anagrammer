@@ -14,8 +14,8 @@
 		EA99D4B8181DE9E9004ED155 /* NSString+Characters.m in Sources */ = {isa = PBXBuildFile; fileRef = EA99D4B6181DE9E9004ED155 /* NSString+Characters.m */; };
 		EA99D4BB181DEF6D004ED155 /* NSString+Replacement.h in Headers */ = {isa = PBXBuildFile; fileRef = EA99D4B9181DEF6D004ED155 /* NSString+Replacement.h */; };
 		EA99D4BC181DEF6D004ED155 /* NSString+Replacement.m in Sources */ = {isa = PBXBuildFile; fileRef = EA99D4BA181DEF6D004ED155 /* NSString+Replacement.m */; };
-		EA99D4BE181DF866004ED155 /* AnagramDictionaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EA99D4BD181DF866004ED155 /* AnagramDictionaryTests.m */; };
 		EA99D4C0181DFBFC004ED155 /* NSSStringTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EA99D4BF181DFBFC004ED155 /* NSSStringTests.m */; };
+		EA99D4C3181E2FA3004ED155 /* AnagramDictionaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EA99D4C2181E2FA3004ED155 /* AnagramDictionaryTests.m */; };
 		EAE7ED041817888400BB4A45 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAE7ED031817888400BB4A45 /* Cocoa.framework */; };
 		EAE7ED0E1817888400BB4A45 /* anagrammerLib.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE7ED0D1817888400BB4A45 /* anagrammerLib.m */; };
 		EAE7ED151817888400BB4A45 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAE7ED141817888400BB4A45 /* XCTest.framework */; };
@@ -80,8 +80,8 @@
 		EA99D4B6181DE9E9004ED155 /* NSString+Characters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Characters.m"; sourceTree = "<group>"; };
 		EA99D4B9181DEF6D004ED155 /* NSString+Replacement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Replacement.h"; sourceTree = "<group>"; };
 		EA99D4BA181DEF6D004ED155 /* NSString+Replacement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Replacement.m"; sourceTree = "<group>"; };
-		EA99D4BD181DF866004ED155 /* AnagramDictionaryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnagramDictionaryTests.m; path = ../anagrammer/AnagramDictionaryTests.m; sourceTree = "<group>"; };
 		EA99D4BF181DFBFC004ED155 /* NSSStringTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSSStringTests.m; sourceTree = "<group>"; };
+		EA99D4C2181E2FA3004ED155 /* AnagramDictionaryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnagramDictionaryTests.m; sourceTree = "<group>"; };
 		EAE7ED021817888400BB4A45 /* libanagrammerLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libanagrammerLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE7ED031817888400BB4A45 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		EAE7ED061817888400BB4A45 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -173,12 +173,9 @@
 				EA07FAF218164EB500C97486 /* MutableTrie.m */,
 				EA07FAF41816538800C97486 /* TrieNode.h */,
 				EA07FAF51816538800C97486 /* TrieNode.m */,
-				EA99D4B9181DEF6D004ED155 /* NSString+Replacement.h */,
-				EA99D4BA181DEF6D004ED155 /* NSString+Replacement.m */,
-				EA99D4B5181DE9E9004ED155 /* NSString+Characters.h */,
-				EA99D4B6181DE9E9004ED155 /* NSString+Characters.m */,
 				EA07FAE21816367A00C97486 /* main.m */,
 				EA07FAE61816367A00C97486 /* anagrammer.1 */,
+				EA99D4C1181E2DD7004ED155 /* Categories */,
 				EA07FAE41816367A00C97486 /* Supporting Files */,
 			);
 			path = anagrammer;
@@ -191,6 +188,17 @@
 				EA07FAE51816367A00C97486 /* anagrammer-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EA99D4C1181E2DD7004ED155 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				EA99D4B9181DEF6D004ED155 /* NSString+Replacement.h */,
+				EA99D4BA181DEF6D004ED155 /* NSString+Replacement.m */,
+				EA99D4B5181DE9E9004ED155 /* NSString+Characters.h */,
+				EA99D4B6181DE9E9004ED155 /* NSString+Characters.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 		EAE7ED051817888400BB4A45 /* Other Frameworks */ = {
@@ -224,9 +232,9 @@
 		EAE7ED1A1817888400BB4A45 /* anagrammerLibTests */ = {
 			isa = PBXGroup;
 			children = (
+				EA99D4C2181E2FA3004ED155 /* AnagramDictionaryTests.m */,
 				EAE7ED201817888400BB4A45 /* MutableTrieTests.m */,
 				EA99D4BF181DFBFC004ED155 /* NSSStringTests.m */,
-				EA99D4BD181DF866004ED155 /* AnagramDictionaryTests.m */,
 				EAE7ED1B1817888400BB4A45 /* Supporting Files */,
 			);
 			path = anagrammerLibTests;
@@ -378,8 +386,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA99D4C3181E2FA3004ED155 /* AnagramDictionaryTests.m in Sources */,
 				EAE7ED211817888400BB4A45 /* MutableTrieTests.m in Sources */,
-				EA99D4BE181DF866004ED155 /* AnagramDictionaryTests.m in Sources */,
 				EA99D4C0181DFBFC004ED155 /* NSSStringTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

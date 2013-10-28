@@ -59,6 +59,20 @@
     
     XCTAssert(checkAnagrams, @"Anagrams were not generated successfully.");
     
+}
+
+- (void)testTrieTraversalTermination
+{
+    //Make sure that the anagram generated does not break when we have short words in the dictionary.
+    NSArray* testWordArray = @[@"a",@"as",@"astronomer"];
+    
+    AnagramDictionary* anagramDictionary = [[AnagramDictionary alloc] initWithWordSet:[NSSet setWithArray:testWordArray]];
+    
+    NSArray* anagrams = [anagramDictionary anagramsForPhrase:@"moon starer"];
+    
+    BOOL checkAnagrams = [anagrams containsObject:@"astronomer"];
+    
+    XCTAssert(checkAnagrams, @"Anagrams were not generated successfully.");
     
 }
 

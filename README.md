@@ -37,6 +37,10 @@ The anagrams are also ouput as JSON in the following format:
   ]
 }
 
+Project includes a sample word dictionary (TWL06) sourced from here:
+
+http://scrabblehelper.googlecode.com/svn/trunk/ScrabbleHelper/src/dictionaries/TWL06.txt
+
 Project
 ==========
 
