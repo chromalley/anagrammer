@@ -22,10 +22,12 @@ static NSString* const kFileParserDomain = @"FileParserDomain";
 +(NSArray*)linesForFileAtPath:(NSString *)path error:(NSError **)error{
     
     if (![FileParser doesFileExistAtPath:path]){
-        *error = [NSError errorWithDomain: kFileParserDomain
+        if (error != NULL){
+            *error = [NSError errorWithDomain: kFileParserDomain
                                      code: -100
                                  userInfo: @{NSLocalizedDescriptionKey:
                                             [NSString stringWithFormat:@"File does not exist at path %@.",path]}];
+        }
         return nil;
     }
     
